@@ -51,4 +51,8 @@ public class Permissoes {
     public int hashCode() {
         return Objects.hash(idpermissoes, idusuario);
     }
+
+    @ManyToOne
+    @JoinColumn(name = "Usuario")
+    private Usuario usuario;
 }

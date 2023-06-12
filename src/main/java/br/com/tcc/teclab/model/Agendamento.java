@@ -1,8 +1,11 @@
 package br.com.tcc.teclab.model;
 
 import javax.persistence.*;
+import java.security.PrivateKey;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -36,9 +39,15 @@ public class Agendamento {
     @JoinColumn(name = "usuario")
     private Usuario usuario;
 
-    @ManyToMany
-    @JoinTable(name = "horario")
+    @OneToMany(mappedBy = "horario")
+    private List<Agendamento> agendamentohorario = new ArrayList<>();
 
+    @OneToMany
+    @JoinColumn(name = "laboratorios")
+    private List<Agendamento> agendamentolaboratorios = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "turma")
+    private Turmas turmas;
 
 }

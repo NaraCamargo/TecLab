@@ -56,4 +56,6 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Agendamento> agendamentousuario = new ArrayList<>();
 
+    @OneToMany(mappedBy = "permissoes")
+    private List<Usuario> usuariopermissoes = new ArrayList<>();
 }

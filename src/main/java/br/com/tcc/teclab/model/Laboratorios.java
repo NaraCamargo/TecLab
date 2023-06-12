@@ -43,4 +43,8 @@ public class Laboratorios {
         return Objects.hash(idlaboratorios);
     }
 
+    @ManyToOne
+    @JoinColumn(name = "laboratorios")
+    private Laboratorios laboratorios;
+
 }

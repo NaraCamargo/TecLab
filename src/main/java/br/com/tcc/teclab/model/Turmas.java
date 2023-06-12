@@ -2,6 +2,8 @@ package br.com.tcc.teclab.model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -43,4 +45,7 @@ public class Turmas {
     public int hashCode() {
         return Objects.hash(idturma);
     }
+
+    @OneToMany(mappedBy = "turmas")
+    private List<Agendamento> agendamentoturmas = new ArrayList<>();
 }

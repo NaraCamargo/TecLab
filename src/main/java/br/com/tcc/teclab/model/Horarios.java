@@ -2,6 +2,8 @@ package br.com.tcc.teclab.model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -41,4 +43,8 @@ public class Horarios {
     public int hashCode() {
         return Objects.hash(idhorario);
     }
+
+    @ManyToOne
+    @JoinColumn(name = "horarios")
+    private Horarios horarios;
 }
