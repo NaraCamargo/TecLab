@@ -50,4 +50,35 @@ public class Agendamento {
     @JoinColumn(name = "turma")
     private Turmas turmas;
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Agendamento> getAgendamentohorario() {
+        return agendamentohorario;
+    }
+
+    public void setAgendamentohorario(List<Agendamento> agendamentohorario) {
+        this.agendamentohorario = agendamentohorario;
+    }
+
+    public List<Agendamento> getAgendamentolaboratorios() {
+        return agendamentolaboratorios;
+    }
+
+    public void setAgendamentolaboratorios(List<Agendamento> agendamentolaboratorios) {
+        this.agendamentolaboratorios = agendamentolaboratorios;
+    }
+
+    public Turmas getTurmas() {
+        return turmas;
+    }
+
+    public void setTurmas(Turmas turmas) {
+        this.turmas = turmas;
+    }
 }

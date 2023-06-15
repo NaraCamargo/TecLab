@@ -48,4 +48,12 @@ public class Turmas {
 
     @OneToMany(mappedBy = "turmas")
     private List<Agendamento> agendamentoturmas = new ArrayList<>();
+
+    public List<Agendamento> getAgendamentoturmas() {
+        return agendamentoturmas;
+    }
+
+    public void setAgendamentoturmas(List<Agendamento> agendamentoturmas) {
+        this.agendamentoturmas = agendamentoturmas;
+    }
 }

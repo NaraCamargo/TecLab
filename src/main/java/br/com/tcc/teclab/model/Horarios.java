@@ -47,4 +47,12 @@ public class Horarios {
     @ManyToOne
     @JoinColumn(name = "horarios")
     private Horarios horarios;
+
+    public Horarios getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(Horarios horarios) {
+        this.horarios = horarios;
+    }
 }

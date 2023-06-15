@@ -13,12 +13,35 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer idusuario;
+    private String nomeusuario;
     private String email;
     private String senha;
 
-    public Integer getIdusuario() {
-        return idusuario;
+    public String getNomeusuario() {
+        return nomeusuario;
     }
+
+    public void setNomeusuario(String nomeusuario) {
+        this.nomeusuario = nomeusuario;
+    }
+
+    public List<Agendamento> getAgendamentousuario() {
+        return agendamentousuario;
+    }
+
+    public void setAgendamentousuario(List<Agendamento> agendamentousuario) {
+        this.agendamentousuario = agendamentousuario;
+    }
+
+    public Permissoes getPermissoes() {
+        return permissoes;
+    }
+
+    public void setPermissoes(Permissoes permissoes) {
+        this.permissoes = permissoes;
+    }
+
+    public Integer getIdusuario() { return idusuario; }
 
     public void setIdusuario(Integer idusuario) {
         this.idusuario = idusuario;
@@ -40,22 +63,10 @@ public class Usuario {
         this.senha = senha;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return idusuario.equals(usuario.idusuario);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idusuario);
-    }
-
     @OneToMany(mappedBy = "usuario")
     private List<Agendamento> agendamentousuario = new ArrayList<>();
 
-    @OneToMany(mappedBy = "permissoes")
-    private List<Usuario> usuariopermissoes = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "permissoes")
+    private Permissoes permissoes;
 }

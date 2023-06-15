@@ -47,4 +47,11 @@ public class Laboratorios {
     @JoinColumn(name = "laboratorios")
     private Laboratorios laboratorios;
 
+    public Laboratorios getLaboratorios() {
+        return laboratorios;
+    }
+
+    public void setLaboratorios(Laboratorios laboratorios) {
+        this.laboratorios = laboratorios;
+    }
 }
