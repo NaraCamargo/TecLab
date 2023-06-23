@@ -1,10 +1,8 @@
 package br.com.tcc.teclab.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -12,8 +10,16 @@ import java.util.Objects;
 @Table(name = "horarios")
 public class Horarios {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer idhorario;
-    private LocalTime horario;
+    private Time horario;
+
+    @ManyToOne
+    @JoinColumn(name = "idagendamento")
+    private Agendamento agendamento;
+
 
     public Integer getIdhorario() {
         return idhorario;
@@ -23,12 +29,20 @@ public class Horarios {
         this.idhorario = idhorario;
     }
 
-    public LocalTime getHorario() {
+    public Time getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalTime horario) {
+    public void setHorario(Time horario) {
         this.horario = horario;
+    }
+
+    public Agendamento getAgendamento() {
+        return agendamento;
+    }
+
+    public void setAgendamento(Agendamento agendamento) {
+        this.agendamento = agendamento;
     }
 
     @Override
@@ -42,17 +56,5 @@ public class Horarios {
     @Override
     public int hashCode() {
         return Objects.hash(idhorario);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "horarios")
-    private Horarios horarios;
-
-    public Horarios getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(Horarios horarios) {
-        this.horarios = horarios;
     }
 }

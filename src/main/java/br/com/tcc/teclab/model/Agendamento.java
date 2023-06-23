@@ -15,7 +15,6 @@ public class Agendamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer idagendamento;
     private LocalDate data;
 
@@ -39,17 +38,6 @@ public class Agendamento {
     @JoinColumn(name = "usuario")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "horario")
-    private List<Agendamento> agendamentohorario = new ArrayList<>();
-
-    @OneToMany
-    @JoinColumn(name = "laboratorios")
-    private List<Agendamento> agendamentolaboratorios = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "turma")
-    private Turmas turmas;
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -57,6 +45,9 @@ public class Agendamento {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    @OneToMany(mappedBy = "horarios")
+    private List<Agendamento> agendamentohorario = new ArrayList<>();
 
     public List<Agendamento> getAgendamentohorario() {
         return agendamentohorario;
@@ -66,6 +57,10 @@ public class Agendamento {
         this.agendamentohorario = agendamentohorario;
     }
 
+    @OneToMany
+    @JoinColumn(name = "laboratorios")
+    private List<Agendamento> agendamentolaboratorios = new ArrayList<>();
+
     public List<Agendamento> getAgendamentolaboratorios() {
         return agendamentolaboratorios;
     }
@@ -74,6 +69,10 @@ public class Agendamento {
         this.agendamentolaboratorios = agendamentolaboratorios;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "turma")
+    private Turmas turmas;
+
     public Turmas getTurmas() {
         return turmas;
     }
@@ -81,4 +80,5 @@ public class Agendamento {
     public void setTurmas(Turmas turmas) {
         this.turmas = turmas;
     }
+
 }

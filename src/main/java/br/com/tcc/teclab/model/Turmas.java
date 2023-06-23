@@ -17,6 +17,22 @@ public class Turmas {
     private Integer idturma;
     private String turma;
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(idturma);
+    }
+
+    @OneToMany(mappedBy = "turmas")
+    private List<Agendamento> agendamentoturmas = new ArrayList<>();
+
+    public List<Agendamento> getAgendamentoturmas() {
+        return agendamentoturmas;
+    }
+
+    public void setAgendamentoturmas(List<Agendamento> agendamentoturmas) {
+        this.agendamentoturmas = agendamentoturmas;
+    }
+
     public Integer getIdturma() {
         return idturma;
     }
@@ -41,19 +57,4 @@ public class Turmas {
         return idturma.equals(turmas.idturma);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idturma);
-    }
-
-    @OneToMany(mappedBy = "turmas")
-    private List<Agendamento> agendamentoturmas = new ArrayList<>();
-
-    public List<Agendamento> getAgendamentoturmas() {
-        return agendamentoturmas;
-    }
-
-    public void setAgendamentoturmas(List<Agendamento> agendamentoturmas) {
-        this.agendamentoturmas = agendamentoturmas;
-    }
 }

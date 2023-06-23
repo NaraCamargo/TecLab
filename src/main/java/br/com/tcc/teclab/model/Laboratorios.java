@@ -14,6 +14,22 @@ public class Laboratorios {
     private Integer idlaboratorios;
     private String nomelab;
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(idlaboratorios);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "laboratorios")
+    private Laboratorios laboratorios;
+
+    public Laboratorios getLaboratorios() {
+        return laboratorios;
+    }
+
+    public void setLaboratorios(Laboratorios laboratorios) {
+        this.laboratorios = laboratorios;
+    }
     public Integer getIdlaboratorios() {
         return idlaboratorios;
     }
@@ -38,20 +54,4 @@ public class Laboratorios {
         return idlaboratorios.equals(that.idlaboratorios);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idlaboratorios);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "laboratorios")
-    private Laboratorios laboratorios;
-
-    public Laboratorios getLaboratorios() {
-        return laboratorios;
-    }
-
-    public void setLaboratorios(Laboratorios laboratorios) {
-        this.laboratorios = laboratorios;
-    }
 }

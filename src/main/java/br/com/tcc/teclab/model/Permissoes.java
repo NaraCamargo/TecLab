@@ -15,6 +15,23 @@ public class Permissoes {
     private Integer idusuario;
     private String permissoes;
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(idpermissoes, idusuario);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Usuario")
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public Integer getIdpermissoes() {
         return idpermissoes;
     }
@@ -47,20 +64,4 @@ public class Permissoes {
         return idpermissoes.equals(that.idpermissoes) && idusuario.equals(that.idusuario);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idpermissoes, idusuario);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Usuario")
-    private Usuario usuario;
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }

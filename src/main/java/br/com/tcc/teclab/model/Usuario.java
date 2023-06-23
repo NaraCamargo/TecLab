@@ -17,6 +17,13 @@ public class Usuario {
     private String email;
     private String senha;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Agendamento> agendamentousuario = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "permissoes")
+    private Permissoes permissoes;
+
     public String getNomeusuario() {
         return nomeusuario;
     }
@@ -63,10 +70,4 @@ public class Usuario {
         this.senha = senha;
     }
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Agendamento> agendamentousuario = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "permissoes")
-    private Permissoes permissoes;
 }
