@@ -1,6 +1,10 @@
 package br.com.tcc.teclab.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,16 +24,16 @@ public class Permissoes {
         return Objects.hash(idpermissoes, idusuario);
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Usuario")
-    private Usuario usuario;
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    private List<Agendamento> agendamentousuario = new ArrayList<>();
 
-    public Usuario getUsuario() {
-        return usuario;
+    public List<Agendamento> getAgendamentousuario() {
+        return agendamentousuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setAgendamentousuario(List<Agendamento> agendamentousuario) {
+        this.agendamentousuario = agendamentousuario;
     }
 
     public Integer getIdpermissoes() {

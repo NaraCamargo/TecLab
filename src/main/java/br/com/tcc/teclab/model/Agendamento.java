@@ -1,5 +1,7 @@
 package br.com.tcc.teclab.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.security.PrivateKey;
 import java.time.LocalDate;
@@ -46,31 +48,26 @@ public class Agendamento {
         this.usuario = usuario;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "horarios")
-    private List<Agendamento> agendamentohorario = new ArrayList<>();
+    private List<Agendamento> agendamentohorarios = new ArrayList<>();
 
-    public List<Agendamento> getAgendamentohorario() {
-        return agendamentohorario;
+    public List<Agendamento> getAgendamentohorarios() {
+        return agendamentohorarios;
     }
 
-    public void setAgendamentohorario(List<Agendamento> agendamentohorario) {
-        this.agendamentohorario = agendamentohorario;
+    public void setAgendamentohorarios(List<Agendamento> agendamentohorarios) {
+        this.agendamentohorarios = agendamentohorarios;
     }
 
-    @OneToMany
-    @JoinColumn(name = "laboratorios")
-    private List<Agendamento> agendamentolaboratorios = new ArrayList<>();
-
-    public List<Agendamento> getAgendamentolaboratorios() {
-        return agendamentolaboratorios;
-    }
-
-    public void setAgendamentolaboratorios(List<Agendamento> agendamentolaboratorios) {
-        this.agendamentolaboratorios = agendamentolaboratorios;
-    }
 
     @ManyToOne
-    @JoinColumn(name = "turma")
+    @JoinColumn(name="idlaboratorios")
+    private Laboratorios laboratorios;
+
+
+    @ManyToOne
+    @JoinColumn(name = "idturma")
     private Turmas turmas;
 
     public Turmas getTurmas() {
@@ -81,4 +78,17 @@ public class Agendamento {
         this.turmas = turmas;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Agendamento that = (Agendamento) o;
+        return idagendamento.equals(that.idagendamento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idagendamento);
+    }
 }

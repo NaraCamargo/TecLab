@@ -1,9 +1,12 @@
 package br.com.tcc.teclab.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,12 +17,7 @@ public class Horarios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer idhorario;
-    private Time horario;
-
-    @ManyToOne
-    @JoinColumn(name = "idagendamento")
-    private Agendamento agendamento;
-
+    private LocalTime horario;
 
     public Integer getIdhorario() {
         return idhorario;
@@ -29,21 +27,14 @@ public class Horarios {
         this.idhorario = idhorario;
     }
 
-    public Time getHorario() {
+    public LocalTime getHorario() {
         return horario;
     }
 
-    public void setHorario(Time horario) {
+    public void setHorario(LocalTime horario) {
         this.horario = horario;
     }
 
-    public Agendamento getAgendamento() {
-        return agendamento;
-    }
-
-    public void setAgendamento(Agendamento agendamento) {
-        this.agendamento = agendamento;
-    }
 
     @Override
     public boolean equals(Object o) {

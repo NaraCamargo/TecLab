@@ -1,6 +1,8 @@
 package br.com.tcc.teclab.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ public class Turmas {
         return Objects.hash(idturma);
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "turmas")
     private List<Agendamento> agendamentoturmas = new ArrayList<>();
 

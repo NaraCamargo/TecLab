@@ -1,5 +1,7 @@
 package br.com.tcc.teclab.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Usuario {
     private String email;
     private String senha;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Agendamento> agendamentousuario = new ArrayList<>();
 

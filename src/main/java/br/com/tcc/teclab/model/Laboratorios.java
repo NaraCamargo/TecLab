@@ -19,21 +19,6 @@ public class Laboratorios {
         return Objects.hash(idlaboratorios);
     }
 
-    @ManyToOne
-    @JoinColumn(name = "laboratorios")
-    private Laboratorios laboratorios;
-
-    public Laboratorios getLaboratorios() {
-        return laboratorios;
-    }
-
-    public void setLaboratorios(Laboratorios laboratorios) {
-        this.laboratorios = laboratorios;
-    }
-    public Integer getIdlaboratorios() {
-        return idlaboratorios;
-    }
-
     public void setIdlaboratorios(Integer idlaboratorios) {
         this.idlaboratorios = idlaboratorios;
     }
