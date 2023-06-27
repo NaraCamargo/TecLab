@@ -73,4 +73,16 @@ public class Usuario {
         this.senha = senha;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return idusuario.equals(usuario.idusuario);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idusuario);
+    }
 }

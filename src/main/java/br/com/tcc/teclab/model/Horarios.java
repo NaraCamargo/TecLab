@@ -19,6 +19,18 @@ public class Horarios {
     private Integer idhorario;
     private LocalTime horario;
 
+    @JsonIgnore
+    @OneToMany
+    private List<Agendamento> agendamentohorario = new ArrayList<>();
+
+    public List<Agendamento> getAgendamentohorario() {
+        return agendamentohorario;
+    }
+
+    public void setAgendamentohorario(List<Agendamento> agendamentohorario) {
+        this.agendamentohorario = agendamentohorario;
+    }
+
     public Integer getIdhorario() {
         return idhorario;
     }
@@ -34,7 +46,6 @@ public class Horarios {
     public void setHorario(LocalTime horario) {
         this.horario = horario;
     }
-
 
     @Override
     public boolean equals(Object o) {

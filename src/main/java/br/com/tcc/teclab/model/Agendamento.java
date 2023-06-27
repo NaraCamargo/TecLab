@@ -48,17 +48,9 @@ public class Agendamento {
         this.usuario = usuario;
     }
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "horarios")
-    private List<Agendamento> agendamentohorarios = new ArrayList<>();
-
-    public List<Agendamento> getAgendamentohorarios() {
-        return agendamentohorarios;
-    }
-
-    public void setAgendamentohorarios(List<Agendamento> agendamentohorarios) {
-        this.agendamentohorarios = agendamentohorarios;
-    }
+    @ManyToOne
+    @JoinColumn(name = "horarios")
+    private Horarios horarios;
 
 
     @ManyToOne
@@ -70,6 +62,22 @@ public class Agendamento {
     @JoinColumn(name = "idturma")
     private Turmas turmas;
 
+    public Horarios getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(Horarios horarios) {
+        this.horarios = horarios;
+    }
+
+    public Laboratorios getLaboratorios() {
+        return laboratorios;
+    }
+
+    public void setLaboratorios(Laboratorios laboratorios) {
+        this.laboratorios = laboratorios;
+    }
+
     public Turmas getTurmas() {
         return turmas;
     }
@@ -77,7 +85,6 @@ public class Agendamento {
     public void setTurmas(Turmas turmas) {
         this.turmas = turmas;
     }
-
 
     @Override
     public boolean equals(Object o) {
