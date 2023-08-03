@@ -16,25 +16,13 @@ public class Permissoes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer idpermissoes;
-    private Integer idusuario;
     private String permissoes;
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idpermissoes, idusuario);
-    }
 
     @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "cadastro")
     private List<Agendamento> agendamentousuario = new ArrayList<>();
 
-    public List<Agendamento> getAgendamentousuario() {
-        return agendamentousuario;
-    }
-
-    public void setAgendamentousuario(List<Agendamento> agendamentousuario) {
-        this.agendamentousuario = agendamentousuario;
-    }
 
     public Integer getIdpermissoes() {
         return idpermissoes;
@@ -42,14 +30,6 @@ public class Permissoes {
 
     public void setIdpermissoes(Integer idpermissoes) {
         this.idpermissoes = idpermissoes;
-    }
-
-    public Integer getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario = idusuario;
     }
 
     public String getPermissoes() {
@@ -60,12 +40,24 @@ public class Permissoes {
         this.permissoes = permissoes;
     }
 
+    public List<Agendamento> getAgendamentousuario() {
+        return agendamentousuario;
+    }
+
+    public void setAgendamentousuario(List<Agendamento> agendamentousuario) {
+        this.agendamentousuario = agendamentousuario;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Permissoes that = (Permissoes) o;
-        return idpermissoes.equals(that.idpermissoes) && idusuario.equals(that.idusuario);
+        return idpermissoes.equals(that.idpermissoes);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(idpermissoes);
+    }
 }

@@ -1,13 +1,7 @@
 package br.com.tcc.teclab.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.security.PrivateKey;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -37,15 +31,15 @@ public class Agendamento {
     }
 
     @ManyToOne
-    @JoinColumn(name = "usuario")
-    private Usuario usuario;
+    @JoinColumn(name = "cadastro")
+    private Cadastro cadastro;
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Cadastro getUsuario() {
+        return cadastro;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Cadastro usuario) {
+        this.cadastro = usuario;
     }
 
     @ManyToOne
@@ -57,10 +51,6 @@ public class Agendamento {
     @JoinColumn(name="idlaboratorios")
     private Laboratorios laboratorios;
 
-
-    @ManyToOne
-    @JoinColumn(name = "idturma")
-    private Turmas turmas;
 
     public Horarios getHorarios() {
         return horarios;
@@ -78,13 +68,6 @@ public class Agendamento {
         this.laboratorios = laboratorios;
     }
 
-    public Turmas getTurmas() {
-        return turmas;
-    }
-
-    public void setTurmas(Turmas turmas) {
-        this.turmas = turmas;
-    }
 
     @Override
     public boolean equals(Object o) {
