@@ -18,11 +18,9 @@ public class Permissoes {
     private Integer idpermissoes;
     private String permissoes;
 
-
     @JsonIgnore
     @OneToMany(mappedBy = "cadastro")
     private List<Agendamento> agendamentousuario = new ArrayList<>();
-
 
     public Integer getIdpermissoes() {
         return idpermissoes;

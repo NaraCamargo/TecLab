@@ -3,5 +3,3 @@ Create Table permissoes(
     permissoes varchar(30) not null
 );
 
-Insert into permissoes(permissoes) values ('professor');
-Insert into permissoes(permissoes) values ('coordenador');

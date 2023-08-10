@@ -20,7 +20,7 @@ public class Horarios {
     private LocalTime horario;
 
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "horarios")
     private List<Agendamento> agendamentohorario = new ArrayList<>();
 
     public List<Agendamento> getAgendamentohorario() {

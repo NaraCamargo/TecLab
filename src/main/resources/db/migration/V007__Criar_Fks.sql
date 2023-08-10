@@ -1,3 +1,21 @@
- Alter Table agendamento add CONSTRAINT FK_cadastro_agendamento foreign key (idusuario) references cadastro(idusuario);
- Alter Table agendamento add CONSTRAINT FK_Laboratorios_Agendamento foreign key (idlaboratorio) references laboratorios(idlaboratorio);
-  Alter Table agendamento add CONSTRAINT FK_Horarios_Agendamento foreign key (idhorario) references horarios(idhorario);
+Alter Table agendamento add CONSTRAINT FK_Cadastro_Agendamento foreign key (idusuario) references Cadastro(idusuario);
+Alter Table agendamento add CONSTRAINT FK_Laboratorios_Agendamento foreign key (idlaboratorio) references laboratorios(idlaboratorio);
+Alter Table agendamento add CONSTRAINT FK_Horarios_Agendamento foreign key (idhorario) references horarios(idhorario);
+
+Insert into agendamento(idusuario, idlaboratorio, idhorario, data) values (1,3,1,'2023-06-27');
+Insert into cadastro(nomeusuario, email, senha) values ('Rogério Furlan', 'rogerio.furlan@etec.sp.gov.br', 'senha');
+Insert into permissoes(permissoes) values ('professor');
+Insert into permissoes(permissoes) values ('coordenador');
+Insert into laboratorios(nomelab) values ('lab 1');
+Insert into laboratorios(nomelab) values ('lab 2');
+Insert into laboratorios(nomelab) values ('lab 3');
+Insert into laboratorios(nomelab) values ('lab 4');
+Insert into laboratorios(nomelab) values ('lab 5');
+Insert into horarios(horario) values ('07:20:00');
+Insert into horarios(horario) values ('08:10:00');
+Insert into horarios(horario) values ('09:00:00');
+Insert into horarios(horario) values ('09:50:00');
+Insert into horarios(horario) values ('10:05:00');
+Insert into horarios(horario) values ('10:55:00');
+Insert into horarios(horario) values ('11:45:00');
+Insert into horarios(horario) values ('12:35:00');
