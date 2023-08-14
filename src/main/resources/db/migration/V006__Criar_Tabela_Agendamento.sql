@@ -1,5 +1,5 @@
-Create Table agendamento(
-     idagendamento int primary key auto_increment,
+Create Table Agendamento(
+     idagendamento int not null primary key AUTO_INCREMENT,
      idusuario int not null,
      idlaboratorio int not null,
      idhorario int not null,

@@ -1,20 +1,19 @@
 package br.com.tcc.teclab.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name="agendamento")
+@Table(name="Agendamento")
 
 public class Agendamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idagendamento;
-    private LocalDate data;
+
+    private Date data;
 
     @ManyToOne
     @JoinColumn(name = "idusuario")
@@ -36,11 +35,11 @@ public class Agendamento {
         this.idagendamento = idagendamento;
     }
 
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

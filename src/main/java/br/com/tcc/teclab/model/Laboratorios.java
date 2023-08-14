@@ -9,14 +9,16 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "laboratorios")
+@Table(name = "Laboratorios")
 public class Laboratorios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer idlaboratorio;
     private String nomelab;
+
+    @OneToMany(mappedBy = "laboratorios")
+    private List<Agendamento> agendamento = new ArrayList<>();
 
 
     public String getNomelab() {

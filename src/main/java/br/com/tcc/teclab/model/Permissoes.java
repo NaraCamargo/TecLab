@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "permissoes")
-
+@Table(name = "Permissoes")
 public class Permissoes {
 
     @Id
@@ -18,9 +17,9 @@ public class Permissoes {
     private Integer idpermissoes;
     private String permissoes;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cadastro")
-    private List<Agendamento> agendamentousuario = new ArrayList<>();
+    @OneToMany(mappedBy = "permissoes")
+    private List<Cadastro> cadastro = new ArrayList<>();
+
 
     public Integer getIdpermissoes() {
         return idpermissoes;
@@ -38,13 +37,7 @@ public class Permissoes {
         this.permissoes = permissoes;
     }
 
-    public List<Agendamento> getAgendamentousuario() {
-        return agendamentousuario;
-    }
 
-    public void setAgendamentousuario(List<Agendamento> agendamentousuario) {
-        this.agendamentousuario = agendamentousuario;
-    }
 
     @Override
     public boolean equals(Object o) {

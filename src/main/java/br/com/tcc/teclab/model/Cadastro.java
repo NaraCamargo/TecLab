@@ -8,22 +8,21 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cadastro")
+@Table(name = "Cadastro")
 public class Cadastro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer idusuario;
     private String nomeusuario;
     private String senha;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cadastro")
-    private List<Agendamento> agendamentocadastro = new ArrayList<>();
+    private List<Agendamento> agendamento = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "permissoes")
+    @JoinColumn(name = "idpermissoes")
     private Permissoes permissoes;
 
     public Integer getIdusuario() {
@@ -50,20 +49,20 @@ public class Cadastro {
         this.senha = senha;
     }
 
-    public List<Agendamento> getAgendamentocadastro() {
-        return agendamentocadastro;
-    }
-
-    public void setAgendamentocadastro(List<Agendamento> agendamentocadastro) {
-        this.agendamentocadastro = agendamentocadastro;
-    }
-
     public Permissoes getPermissoes() {
         return permissoes;
     }
 
     public void setPermissoes(Permissoes permissoes) {
         this.permissoes = permissoes;
+    }
+
+    public List<Agendamento> getAgendamento() {
+        return agendamento;
+    }
+
+    public void setAgendamento(List<Agendamento> agendamento) {
+        this.agendamento = agendamento;
     }
 
     @Override

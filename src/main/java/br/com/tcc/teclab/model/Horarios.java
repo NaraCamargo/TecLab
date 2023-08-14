@@ -10,25 +10,25 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "horarios")
+@Table(name = "Horarios")
 public class Horarios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer idhorario;
+
     private LocalTime horario;
 
     @JsonIgnore
     @OneToMany(mappedBy = "horarios")
-    private List<Agendamento> agendamentohorario = new ArrayList<>();
+    private List<Agendamento> agendamento = new ArrayList<>();
 
-    public List<Agendamento> getAgendamentohorario() {
-        return agendamentohorario;
+    public List<Agendamento> getAgendamento() {
+        return agendamento;
     }
 
-    public void setAgendamentohorario(List<Agendamento> agendamentohorario) {
-        this.agendamentohorario = agendamentohorario;
+    public void setAgendamento(List<Agendamento> agendamento) {
+        this.agendamento = agendamento;
     }
 
     public Integer getIdhorario() {
