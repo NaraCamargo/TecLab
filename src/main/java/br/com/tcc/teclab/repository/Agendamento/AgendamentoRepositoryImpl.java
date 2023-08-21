@@ -37,24 +37,24 @@ public class AgendamentoRepositoryImpl implements AgendamentoRepositoryQuery {
 
         adicionarRestricoesDePaginacao(query, pageable);
 
-        return new PageImpl<>(query.getResultList(),pageable, total(agendamentoFilter));
+        return new PageImpl<>(query.getResultList(), pageable, total(agendamentoFilter));
     }
 
-    private Object total(AgendamentoFilter agendamentoFilter) {
+    private Long total(AgendamentoFilter agendamentoFilter) {
 
-        private Long total(AgendamentoFilter agendamentoFilter){
-            CriteriaBuilder builder = manager.getCriteriaBuilder();
-            CriteriaQuery<Agendamento> criteria = builder.createQuery(Agendamento.class);
-            Root<Agendamento> root = criteria.from(Agendamento.class);
+        CriteriaBuilder builder = manager.getCriteriaBuilder();
+        CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
+        Root<Agendamento> root = criteria.from(Agendamento.class);
 
-            Predicate[] predicates = criarRestricoes(agendamentoFilter, builder, root);
-            criteria.where(predicates);
-            criteria.orderBy(builder.asc(root.get("nomecurso")));
+        Predicate[] predicates = criarrestricoes(agendamentoFilter, builder, root);
+        criteria.where(predicates);
+        criteria.orderBy(builder.asc(root.get("nomelab")));
 
-            criteria.select(builder.count(root));
-        }
+       criteria.select(builder.count(root));
 
+        return manager.createQuery(criteria).getSingleResult();
     }
+
 
     private void adicionarRestricoesDePaginacao(TypedQuery<Agendamento> query, Pageable pageable) {
 
@@ -71,7 +71,7 @@ public class AgendamentoRepositoryImpl implements AgendamentoRepositoryQuery {
         List<Predicate> predicates = new ArrayList<>();
 
         if(!StringUtils.isEmpty(agendamentoFilter.getNomelab())){
-            predicates.add(builder.like(builder.lower(root.get("nomelab")),
+            predicates.add(builder.like(builder.lower(root.get("laboratorios").get("nomeLab")),
                     "%" + agendamentoFilter.getNomelab().toLowerCase()));
         }
         return predicates.toArray(new Predicate[predicates.size()]);
