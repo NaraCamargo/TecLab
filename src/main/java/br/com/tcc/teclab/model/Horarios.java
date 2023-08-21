@@ -16,7 +16,6 @@ public class Horarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idhorario;
-
     private LocalTime horario;
 
     @JsonIgnore

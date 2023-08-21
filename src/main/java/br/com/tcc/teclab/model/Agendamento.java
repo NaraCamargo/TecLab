@@ -16,15 +16,15 @@ public class Agendamento {
     private Date data;
 
     @ManyToOne
-    @JoinColumn(name = "idusuario")
+    @JoinColumn(name = "nomeusuario")
     private Cadastro cadastro;
 
     @ManyToOne
-    @JoinColumn(name = "idhorario")
+    @JoinColumn(name = "horario")
     private Horarios horarios;
 
     @ManyToOne
-    @JoinColumn(name="idlaboratorio")
+    @JoinColumn(name="nomelab")
     private Laboratorios laboratorios;
 
     public Integer getIdagendamento() {
