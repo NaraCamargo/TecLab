@@ -1,6 +1,7 @@
 package br.com.tcc.teclab.repository.Agendamento;
 
 import br.com.tcc.teclab.model.Agendamento;
+import br.com.tcc.teclab.repository.Dtos.AgendamentoDtos;
 import br.com.tcc.teclab.repository.Filter.AgendamentoFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
@@ -23,17 +24,17 @@ public class AgendamentoRepositoryImpl implements AgendamentoRepositoryQuery {
     private EntityManager manager;
 
     @Override
-    public Page<Agendamento> Filtrar(AgendamentoFilter agendamentoFilter, Pageable pageable) {
+    public Page<AgendamentoDtos> Filtrar(AgendamentoFilter agendamentoFilter, Pageable pageable) {
 
         CriteriaBuilder builder = manager.getCriteriaBuilder();
-        CriteriaQuery<Agendamento> criteria = builder.createQuery(Agendamento.class);
-        Root<Agendamento> root = criteria.from(Agendamento.class);
+        CriteriaQuery<AgendamentoDtos> criteria = builder.createQuery(AgendamentoDtos.class);
+        Root<AgendamentoDtos> root = criteria.from(AgendamentoDtos.class);
 
         Predicate[] predicates = criarrestricoes(agendamentoFilter, builder, root);
         criteria.where(predicates);
 
-        criteria.orderBy(builder.asc(root.get("nomelab")));
-        TypedQuery<Agendamento> query = manager.createQuery(criteria);
+        criteria.orderBy(builder.asc(root.get("nomeLab")));
+        TypedQuery<AgendamentoDtos> query = manager.createQuery(criteria);
 
         adicionarRestricoesDePaginacao(query, pageable);
 
@@ -44,11 +45,11 @@ public class AgendamentoRepositoryImpl implements AgendamentoRepositoryQuery {
 
         CriteriaBuilder builder = manager.getCriteriaBuilder();
         CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
-        Root<Agendamento> root = criteria.from(Agendamento.class);
+        Root<AgendamentoDtos> root = criteria.from(AgendamentoDtos.class);
 
         Predicate[] predicates = criarrestricoes(agendamentoFilter, builder, root);
         criteria.where(predicates);
-        criteria.orderBy(builder.asc(root.get("nomelab")));
+        criteria.orderBy(builder.asc(root.get("nomeLab")));
 
        criteria.select(builder.count(root));
 
@@ -56,7 +57,7 @@ public class AgendamentoRepositoryImpl implements AgendamentoRepositoryQuery {
     }
 
 
-    private void adicionarRestricoesDePaginacao(TypedQuery<Agendamento> query, Pageable pageable) {
+    private void adicionarRestricoesDePaginacao(TypedQuery<AgendamentoDtos> query, Pageable pageable) {
 
         int paginaAtual = pageable.getPageNumber();
         int totalRegistrosPorPagina = pageable.getPageSize();
@@ -70,9 +71,9 @@ public class AgendamentoRepositoryImpl implements AgendamentoRepositoryQuery {
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if(!StringUtils.isEmpty(agendamentoFilter.getNomelab())){
-            predicates.add(builder.like(builder.lower(root.get("laboratorios").get("nomeLab")),
-                    "%" + agendamentoFilter.getNomelab().toLowerCase()));
+        if(!StringUtils.isEmpty(agendamentoFilter.getNomeLab())){
+            predicates.add(builder.like(builder.lower(root.get("nomeLab")),
+                    "%" + agendamentoFilter.getNomeLab().toLowerCase()));
         }
         return predicates.toArray(new Predicate[predicates.size()]);
     }

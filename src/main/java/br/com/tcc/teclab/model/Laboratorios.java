@@ -15,18 +15,17 @@ public class Laboratorios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idlaboratorio;
-    private String nomelab;
+    private String nomeLab;
 
     @OneToMany(mappedBy = "laboratorios")
     private List<Agendamento> agendamento = new ArrayList<>();
 
-
-    public String getNomelab() {
-        return nomelab;
+    public String getNomeLab() {
+        return nomeLab;
     }
 
-    public void setNomelab(String nomelab) {
-        this.nomelab = nomelab;
+    public void setNomeLab(String nomeLab) {
+        this.nomeLab = nomeLab;
     }
 
     public Integer getIdlaboratorio() {
