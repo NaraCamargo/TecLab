@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("/agendamento")
+@RequestMapping("/agendamentos")
 @RestController
 public class AgendamentoController {
 
