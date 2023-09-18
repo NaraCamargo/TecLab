@@ -2,7 +2,7 @@ package br.com.tcc.teclab.Controller;
 
 import br.com.tcc.teclab.model.Agendamento;
 import br.com.tcc.teclab.repository.AgendamentoRepository;
-import br.com.tcc.teclab.repository.Filter.AgendamentoFilter;
+import br.com.tcc.teclab.repository.Filter.CadastroFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +20,7 @@ public class AgendamentoController {
     private AgendamentoRepository agendamentoRepository;
 
     @GetMapping()
-    public Page<Agendamento> pesquisar(AgendamentoFilter agendamentoFilter, Pageable pageable){
+    public Page<Agendamento> pesquisar(CadastroFilter agendamentoFilter, Pageable pageable){
         return agendamentoRepository.Filtrar(agendamentoFilter, pageable);
     }
 
