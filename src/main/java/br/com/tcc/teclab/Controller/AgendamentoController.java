@@ -19,11 +19,6 @@ public class AgendamentoController {
     @Autowired
     private AgendamentoRepository agendamentoRepository;
 
-    @GetMapping()
-    public Page<Agendamento> pesquisar(CadastroFilter agendamentoFilter, Pageable pageable){
-        return agendamentoRepository.Filtrar(agendamentoFilter, pageable);
-    }
-
     @GetMapping("/todos")
     public List<Agendamento> listarTodosAgendamentos() {
         return agendamentoRepository.findAll();

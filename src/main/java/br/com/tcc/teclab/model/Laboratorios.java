@@ -15,6 +15,7 @@ public class Laboratorios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idlaboratorio;
+
     @Column(name="nomeLab")
     private String nomelab;
 

@@ -16,7 +16,7 @@ public class Horarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idhorario;
-    private LocalTime horario;
+    private String horario;
 
     @JsonIgnore
     @OneToMany(mappedBy = "horarios")
@@ -38,11 +38,11 @@ public class Horarios {
         this.idhorario = idhorario;
     }
 
-    public LocalTime getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalTime horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

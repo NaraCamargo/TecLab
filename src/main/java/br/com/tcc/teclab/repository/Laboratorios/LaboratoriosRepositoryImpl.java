@@ -37,7 +37,7 @@ public class LaboratoriosRepositoryImpl implements LaboratoriosRepositoryQuery {
 
         adicionarRestricoesDePagianacao(query, pageable);
 
-        return new PageImpl<>(query.getResultList(),pageable, total(LaboratorioFilter));
+        return new PageImpl<>(query.getResultList(),pageable, total(laboratorioFilter));
     }
 
     private Long total(LaboratorioFilter laboratorioFilter) {

@@ -1,8 +1,6 @@
 package br.com.tcc.teclab.repository.Horarios;
 
-import br.com.tcc.teclab.model.Cadastro;
 import br.com.tcc.teclab.model.Horarios;
-import br.com.tcc.teclab.repository.Filter.CadastroFilter;
 import br.com.tcc.teclab.repository.Filter.HorariosFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
@@ -19,7 +17,7 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HorariosRepositoryImpl {
+public class HorariosRepositoryImpl implements HorariosRepositoryQuery{
 
     @PersistenceContext
     private EntityManager manager;
@@ -73,7 +71,7 @@ public class HorariosRepositoryImpl {
         List<Predicate> predicates = new ArrayList<>();
 
         if(!StringUtils.isEmpty(horariosFilter.getHorario())){
-            predicates.add(builder.like(builder.lower(root.get("nomecliente")),
+            predicates.add(builder.like(builder.lower(root.get("horario")),
                     "%" + horariosFilter.getHorario().toLowerCase() + "%"));
         }
 
