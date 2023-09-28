@@ -1,8 +1,6 @@
 package br.com.tcc.teclab.Controller;
 
-import br.com.tcc.teclab.model.Laboratorios;
 import br.com.tcc.teclab.model.Permissoes;
-import br.com.tcc.teclab.repository.LaboratorioRepository;
 import br.com.tcc.teclab.repository.PermissoesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -70,9 +70,9 @@ public class LaboratoriosRepositoryImpl implements LaboratoriosRepositoryQuery {
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if(!StringUtils.isEmpty(laboratorioFilter.getNomeLab())){
-            predicates.add(builder.like(builder.lower(root.get("nomecLab")),
-                    "%" + laboratorioFilter.getNomeLab().toLowerCase() + "%"));
+        if(!StringUtils.isEmpty(laboratorioFilter.getNomelab())){
+            predicates.add(builder.like(builder.lower(root.get("nomeLab")),
+                    "%" + laboratorioFilter.getNomelab().toLowerCase() + "%"));
         }
 
         return predicates.toArray(new Predicate[predicates.size()]);
