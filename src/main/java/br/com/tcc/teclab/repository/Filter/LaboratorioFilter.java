@@ -2,13 +2,13 @@ package br.com.tcc.teclab.repository.Filter;
 
 public class LaboratorioFilter {
 
-    private String nomelab;
+    private String nomeLab;
 
-    public String getNomelab() {
-        return nomelab;
+    public String getNomeLab() {
+        return nomeLab;
     }
 
-    public void setNomelab(String nomelab) {
-        this.nomelab = nomelab;
+    public void setNomeLab(String nomeLab) {
+        this.nomeLab = nomeLab;
     }
 }

@@ -32,7 +32,7 @@ public class LaboratoriosRepositoryImpl implements LaboratoriosRepositoryQuery {
         Predicate[] predicates = criarRestricoes(laboratorioFilter, builder, root);
         criteria.where(predicates);
 
-        criteria.orderBy(builder.asc(root.get("nomelab")));
+        criteria.orderBy(builder.asc(root.get("nomeLab")));
         TypedQuery<Laboratorios> query = manager.createQuery(criteria);
 
         adicionarRestricoesDePagianacao(query, pageable);
@@ -70,9 +70,9 @@ public class LaboratoriosRepositoryImpl implements LaboratoriosRepositoryQuery {
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if(!StringUtils.isEmpty(laboratorioFilter.getNomelab())){
+        if(!StringUtils.isEmpty(laboratorioFilter.getNomeLab())){
             predicates.add(builder.like(builder.lower(root.get("nomeLab")),
-                    "%" + laboratorioFilter.getNomelab().toLowerCase() + "%"));
+                    "%" + laboratorioFilter.getNomeLab().toLowerCase() + "%"));
         }
 
         return predicates.toArray(new Predicate[predicates.size()]);

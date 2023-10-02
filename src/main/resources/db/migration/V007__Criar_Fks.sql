@@ -5,11 +5,11 @@ Alter Table Agendamento add CONSTRAINT FK_Horarios_Agendamento foreign key(idhor
 Insert into cadastro(nomeusuario, email, senha, idpermissoes) values ('Rogério Furlan', 'rogerio.furlan@etec.sp.gov.br', 'senha', 1);
 Insert into permissoes(permissoes) values ('professor');
 Insert into permissoes(permissoes) values ('coordenador');
-Insert into laboratorios(nomeLab) values ('lab 1');
-Insert into laboratorios(nomeLab) values ('lab 2');
-Insert into laboratorios(nomeLab) values ('lab 3');
-Insert into laboratorios(nomeLab) values ('lab 4');
-Insert into laboratorios(nomeLab) values ('lab 5');
+Insert into laboratorios(nome_lab) values ('lab 1');
+Insert into laboratorios(nome_lab) values ('lab 2');
+Insert into laboratorios(nome_lab) values ('lab 3');
+Insert into laboratorios(nome_lab) values ('lab 4');
+Insert into laboratorios(nome_lab) values ('lab 5');
 Insert into horarios(horario) values ('07:20:00');
 Insert into horarios(horario) values ('08:10:00');
 Insert into horarios(horario) values ('09:00:00');

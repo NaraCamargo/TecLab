@@ -15,7 +15,6 @@ public class Agendamento {
 
     private Date data;
 
-
     @ManyToOne
     @JoinColumn(name = "idusuario")
     private Cadastro cadastro;
