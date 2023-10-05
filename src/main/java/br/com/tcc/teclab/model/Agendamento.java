@@ -1,6 +1,7 @@
 package br.com.tcc.teclab.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idagendamento;
 
-    private Date data;
+    private String data;
 
     @ManyToOne
     @JoinColumn(name = "idusuario")
@@ -35,11 +36,11 @@ public class Agendamento {
         this.idagendamento = idagendamento;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
