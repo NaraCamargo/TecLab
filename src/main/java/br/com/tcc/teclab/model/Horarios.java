@@ -18,6 +18,8 @@ public class Horarios {
     private Integer idhorario;
     private String horario;
 
+    //chave estrangeira para o laboratorio
+
     @JsonIgnore
     @OneToMany(mappedBy = "horarios")
     private List<Agendamento> agendamento = new ArrayList<>();

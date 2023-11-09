@@ -22,3 +22,4 @@ Insert into horarios(horario) values ('13:30:00');
 Insert into horarios(horario) values ('14:20:00');
 Insert into horarios(horario) values ('15:10:00');
 Insert into Agendamento(idusuario, idlaboratorio, idhorario, data) values (1,3,1,'2023-06-27');
+Insert into Agendamento(idusuario, idlaboratorio, idhorario, data) values (1,3,4,'2020-06-20');

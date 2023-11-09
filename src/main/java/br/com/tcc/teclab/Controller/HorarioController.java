@@ -29,6 +29,6 @@ public class HorarioController {
         return horariosRepository.findAll();
     }
 
-
+    //Post conferir se existe horario para esse laboratorio se não exister mostrar os disponiveis
 
 }
